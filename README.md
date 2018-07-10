@@ -29,11 +29,11 @@ Create a file in `/src/spc/ipex/routes.clj` and paste needed routes for the call
     (GET "/history/:number" []
       :path-params [number :- Long]
       :summary "Returns ipex history"
-      (ok (ipex/get-calls-history number)))
+      (ok (ipex/get-call-history number)))
 
     (POST "/call/:number" []
       :path-params [number :- Long]
       :summary "Makes call"
       :current-user user
-      (ok (ipex/make-new-call number (:email user))))))
+      (ok (ipex/make-call number (:email user))))))
 ```
