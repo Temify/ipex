@@ -26,6 +26,11 @@ Create a file in `/src/spc/ipex/routes.clj` and paste needed routes for the call
   (context "/ipex" []
     :tags ["Ipex"]
 
+    (GET "/token" []
+     :summary "Returns IPEX auth token"
+     :current-user user
+     (ok (ipex/get-token (:email user))))
+
     (GET "/history/:number" []
       :path-params [number :- Long]
       :summary "Returns ipex history"
